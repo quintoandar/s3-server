@@ -1,3 +1,5 @@
+Forked from [signalfx/s3-server](https://github.com/signalfx/s3-server)
+
 # s3-server
 
 Serve the contents of a S3 bucket (private or public) over HTTP.

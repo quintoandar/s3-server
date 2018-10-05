@@ -55,6 +55,9 @@ function loadPrefixes(prefix, callback){
 
 function serve(path, res){
   s3.getObject({ Bucket: bucket, Key: path }, function(err, data){
+
+    console.log('GET ' + bucket + '/' + path);
+
     if(err){
       res.status(err.statusCode);
       res.end();

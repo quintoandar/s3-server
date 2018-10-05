@@ -1,17 +1,17 @@
-FROM quay.io/signalfuse/maestro-base:alp-3.2
+FROM node:8-alpine
 
-MAINTAINER Ozan Turgut <ozan@signalfuse.com>
+MAINTAINER Fernando Barbosa <fbcbarbosa@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
 WORKDIR /opt/s3-server/
 
-# Install node
-RUN apk-install nodejs
-
 # Install s3-server
 ADD . /opt/s3-server/
 RUN npm install --production
 
+EXPOSE 3010
+
 # Run the server
-CMD node bin/server.js
+ENTRYPOINT ["node"]
+CMD ["bin/server.js"]
