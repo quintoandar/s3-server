@@ -2,8 +2,6 @@ FROM node:8-alpine
 
 MAINTAINER Fernando Barbosa <fbcbarbosa@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-
 WORKDIR /opt/s3-server/
 
 # Install s3-server
