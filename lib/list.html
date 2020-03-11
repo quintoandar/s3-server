@@ -1,15 +1,31 @@
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>S3 Server</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    This is an S3 Server. It proxies your requests to the {{s3Bucket}} S3 bucket.
-    The current path you chose had a '/' at the end and I didn't find an index.html inside it,
-    so here are all the subfolders I found instead:
-    <ul>
-      {{#prefixes}}
-        <li><a href="/{{Prefix}}">{{Prefix}}</a></li>
-      {{/prefixes}}
-    </ul>
+    <div class="container">
+      <h3>{{s3Bucket}}</h3>
+      <p>This is an S3 Server. It proxies your requests to the {{s3Bucket}} S3 bucket.</p>
+      <p>The current path had a '/' at the end but no index.html inside it.</p>
+      <ul class="collection with-header">
+        <li class="collection-header"><h6>Subfolders</h6></li>
+        {{#prefixes}}
+          <li class="collection-item">
+            <div>{{Prefix}}
+              <a href="/{{Prefix}}" class="secondary-content">
+                <i class="material-icons icon-5a">folder</i>
+              </a>
+            </div>
+          </li>
+        {{/prefixes}}
+      </ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
