@@ -94,6 +94,8 @@ function serveList(prefixes, res){
 
 app.use(function(req, res, next){
   var path = prefix + req.path.substr(1);
+  path = path.replace(/\+/g, '%20');
+  path = decodeURIComponent(path);
 
   if(path === '' || path.slice(-1) === '/'){
     loadPrefixes(path, function(err, data){
